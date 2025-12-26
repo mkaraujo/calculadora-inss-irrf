@@ -1,80 +1,109 @@
+/* Estrutura geral */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f6f9;
-  color: #000;
-  margin: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+  background: #fff;
+  margin: 20px;
 }
 
-h2, h3 {
-  margin-bottom: 10px;
+h2 {
+  margin-bottom: 16px;
+}
+
+h3 {
+  margin: 0 0 10px 0;
+}
+
+h4 {
+  margin: 10px 0;
 }
 
 .obs {
-  font-size: 0.9em;
-  color: #666; /* cinza */
-  font-weight: normal;
+  font-size: 12px;
+  color: #666;
 }
 
-.grupo {
+/* Blocos de entrada (vermelhos, como no rascunho) */
+.box-entrada {
+  border: 1px solid #d00;
+  padding: 12px;
+  margin-bottom: 18px;
+  background-color: #fdf6f6;
+}
+
+/* Layout dos campos */
+.linha {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.grid-2 {
   display: grid;
-  grid-template-columns: 220px 200px; /* coluna imaginária: labels e inputs alinhados */
-  gap: 8px 20px;
-  margin-bottom: 20px;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 12px;
 }
 
-/* Labels alinhados */
-label {
-  text-align: right;
-  padding-right: 10px;
+.campo label,
+.linha label {
+  display: inline-block;
+  min-width: 180px;
 }
 
-/* Inputs padrão */
-input {
+.campo input,
+.linha input,
+select {
   padding: 6px;
-  border-radius: 4px;
-  width: 180px;
+  width: 220px;
+  box-sizing: border-box;
 }
 
-/* Proventos com contorno verde */
-.provento {
-  border: 2px solid green;
+/* Botão */
+.acoes {
+  margin: 16px 0 24px 0;
 }
 
-/* Descontos com contorno vermelho */
-.desconto {
-  border: 2px solid red;
-}
-
-/* Botão azul fixo */
 button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: #0000FF; /* azul puro */
+  background: #0b5ed7;
   color: #fff;
   border: none;
+  padding: 10px 16px;
   border-radius: 4px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #000099; /* azul mais escuro */
+  background: #094fb3;
 }
 
-#resultado {
-  margin-top: 20px;
-  padding: 15px;
-  background-color: #ecf0f1;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+/* Resultados em 4 colunas */
+.resultados-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
 }
 
+.box-resultado {
+  border: 1px solid #d00;
+  padding: 10px;
+  background-color: #fff8f8;
+}
+
+.box-resultado h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 6px;
+}
+
+/* Rodapé */
 footer {
-  margin-top: 20px;
-  text-align: center;
+  margin-top: 24px;
 }
 
 .assinatura {
-  font-size: 0.9em;
-  color: #666; /* cinza discreto */
-  font-style: italic;
+  font-size: 12px;
+  color: #555;
+  text-align: center;
 }

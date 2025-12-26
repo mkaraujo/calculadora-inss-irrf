@@ -3,66 +3,174 @@
 <head>
   <meta charset="UTF-8">
   <title>Calculadora INSS e IRRF</title>
-    <title>Calculadora INSS e IRRF</title>
- <meta name="google-site-verification" content="googleba67672db93b9103.html">
+  <meta name="google-site-verification" content="googleba67672db93b9103.html">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h2>Calculadora de INSS e IRRF</h2>
 
-  <h3>Configurações</h3>
-  <div class="grupo">
-    <label>Ano do cálculo:</label>
-    <select id="anoCalculo">
-      <option value="">-- selecione --</option>
-      <option value="2025">2025</option>
-      <option value="2026">2026</option>
-    </select>
+  <!-- Configurações -->
+  <div class="box-entrada">
+    <h3>Configurações</h3>
+    <div class="linha">
+      <label>Ano do cálculo:</label>
+      <select id="anoCalculo">
+        <option value="">-- selecione --</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+      </select>
 
-    <label>Tipo de dedução IR:</label>
-    <select id="tipoDeducao">
-      <option value="">-- selecione --</option>
-      <option value="legais">Deduções legais</option>
-      <option value="simplificado">Desconto simplificado</option>
-    </select>
-  </div>
-  <br>
-
-  <h3>Proventos <span class="obs">(Informe os valores, exemplo: R$ 200,00)</span></h3>
-  <div class="grupo">
-    <label>Salário:</label><input type="number" id="salario" class="provento">
-    <label>Hora extra:</label><input type="number" id="horaExtra" class="provento">
-    <label>DSR de Hora extra:</label><input type="number" id="dsrHoraExtra" class="provento">
-    <label>Comissão:</label><input type="number" id="comissao" class="provento">
-    <label>Tarefa:</label><input type="number" id="tarefa" class="provento">
-    <label>DSR de Tarefa:</label><input type="number" id="dsrTarefa" class="provento">
-    <label>Prêmio (só IRRF):</label><input type="number" id="premio" class="provento">
+      <label>Tipo de dedução IR:</label>
+      <select id="tipoDeducao">
+        <option value="">-- selecione --</option>
+        <option value="legais">Deduções legais</option>
+        <option value="simplificado">Desconto simplificado</option>
+      </select>
+    </div>
   </div>
 
-  <h3>Descontos <span class="obs">(Informe os valores, exemplo: R$ 200,00)</span></h3>
-  <div class="grupo">
-    <label>Faltas:</label><input type="number" id="faltas" class="desconto">
-    <label>Afastamento:</label><input type="number" id="afastamento" class="desconto">
-    <label>DSR de falta:</label><input type="number" id="dsrFalta" class="desconto">
-    <label>Pensão alimentícia:</label><input type="number" id="pensao" class="desconto">
+  <!-- Bloco Mensal -->
+  <div class="box-entrada">
+    <h3>Cálculo Mensal</h3>
+
+    <h4>Proventos <span class="obs">(Informe os valores, exemplo: R$ 200,00)</span></h4>
+    <div class="grid-2">
+      <div class="campo">
+        <label>Salário:</label><input type="number" id="salario">
+      </div>
+      <div class="campo">
+        <label>Hora extra:</label><input type="number" id="horaExtra">
+      </div>
+      <div class="campo">
+        <label>Comissão:</label><input type="number" id="comissao">
+      </div>
+      <div class="campo">
+        <label>DSR de Hora extra:</label><input type="number" id="dsrHoraExtra">
+      </div>
+      <div class="campo">
+        <label>Tarefa:</label><input type="number" id="tarefa">
+      </div>
+      <div class="campo">
+        <label>DSR de Tarefa:</label><input type="number" id="dsrTarefa">
+      </div>
+      <div class="campo" id="premioCampo" style="display:none;">
+      <label>Prêmio (só IRRF):</label>
+      <input type="number" id="premio">
   </div>
 
-  <h3>Dependentes</h3>
-  <div class="grupo">
-    <label>Nº de Dependentes (R$ 189,59 cada):</label>
-    <input type="number" id="dependentes" class="desconto">
+    </div>
+
+    <h4>Descontos <span class="obs">(Informe os valores, exemplo: R$ 200,00)</span></h4>
+    <div class="grid-2">
+      <div class="campo">
+        <label>Faltas:</label><input type="number" id="faltas">
+      </div>
+      <div class="campo">
+        <label>Afastamento:</label><input type="number" id="afastamento">
+      </div>
+      <div class="campo">
+        <label>DSR de falta:</label><input type="number" id="dsrFalta">
+      </div>
+      <div class="campo">
+        <label>Pensão alimentícia:</label><input type="number" id="pensao">
+      </div>
+    </div>
+
+    <h4>Dependentes <span class="obs">(Informe a quantidade de dependentes, exemplo: 2)</span></h4>
+    <div class="linha">
+      <label>Nº de Dependentes:</label>
+      <input type="number" id="dependentes">
+    </div>
   </div>
 
-  <button onclick="calcular()">Calcular agora</button>
+  <!-- Bloco Férias -->
+  <div class="box-entrada">
+    <h3>Cálculo de Férias</h3>
+    <div class="grid-2">
+      <div class="campo">
+        <label>Férias:</label><input type="number" id="ferias">
+      </div>
+      <div class="campo">
+        <label>1/3 Constitucional:</label>
+        <input type="number" id="umTerco">
+      </div>
+       <div class="campo">
+        <h4>Pensão sobre Férias<span class="obs">(Preencher somente se a pensão tiver incidência de IRRF. Caso contrário, deixe vazio.)</span></h4>
+        <label>Pensão sobre Férias:</label><input type="number" id="pensaoFerias">
+      </div>
+      <div class="campo">
+        <h4>Dependentes <span class="obs">(Informe a quantidade de dependentes, exemplo: 2)</span></h4>
+        <label>Nº de Dependentes:</label><input type="number" id="dependentesFerias">
+      </div>
+    </div>
+  </div>
 
-  <h3>Resultado:</h3>
-  <div id="resultado"></div>
+  <!-- Bloco 13º -->
+<div class="box-entrada">
+  <h3>Cálculo de 13º Salário</h3>
+  <div class="campo">
+    <label>13º salário:</label>
+    <input type="number" id="decimoTerceiro">
+  </div>
+  <div class="campo">
+    <label>Pensão sobre 13º:</label>
+    <input type="number" id="pensao13">
+  </div>
+  <p class="obs">Preencher somente se a pensão tiver incidência de IRRF. Caso contrário, deixe vazio.</p>
+  
+  <h4>Dependentes 
+    <span class="obs">(Informe a quantidade de dependentes, exemplo: 2)</span>
+  </h4>
+  <div class="campo">
+    <label>Nº de Dependentes:</label>
+    <input type="number" id="dependentes13">
+  </div>
+
+  <p class="obs">
+    O cálculo do IRRF sobre o 13º seguirá a opção escolhida em 
+    <strong>Tipo de Dedução</strong> (Deduções legais ou Desconto simplificado).
+  </p>
+</div>
+
+
+  <!-- Bloco PLR -->
+  <div class="box-entrada">
+    <h3>Cálculo de PLR</h3>
+    <div class="linha">
+      <label>PLR:</label><input type="number" id="plr">
+      <span class="obs">A Participação nos Lucros e Resultados (PLR) tem uma tabela de Imposto de Renda (IR) exclusiva e separada da remuneração mensal porque, por lei, ela não é considerada parte integrante do salário.</span>
+    </div>
+  </div>
+
+  <!-- Botão de cálculo -->
+  <div class="acoes">
+    <button onclick="calcular()">Calcular agora</button>
+  </div>
+
+  <!-- Resultados em 4 colunas com títulos -->
+  <div class="resultados-container">
+    <div class="box-resultado">
+      <h4>Resultado Mensal</h4>
+      <div id="resultadoMensal"></div>
+    </div>
+    <div class="box-resultado">
+      <h4>Resultado Férias</h4>
+      <div id="resultadoFerias"></div>
+    </div>
+    <div class="box-resultado">
+      <h4>Resultado 13º</h4>
+      <div id="resultado13"></div>
+    </div>
+    <div class="box-resultado">
+      <h4>Resultado PLR</h4>
+      <div id="resultadoPLR"></div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 
   <footer>
-  <p class="assinatura">Desenvolvido por MKARAUJO © 2025</p>
+    <p class="assinatura">Desenvolvido por MKARAUJO © 2025</p>
   </footer>
-
 </body>
 </html>
