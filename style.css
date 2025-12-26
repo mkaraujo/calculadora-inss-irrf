@@ -1,0 +1,80 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+  color: #000;
+  margin: 40px;
+}
+
+h2, h3 {
+  margin-bottom: 10px;
+}
+
+.obs {
+  font-size: 0.9em;
+  color: #666; /* cinza */
+  font-weight: normal;
+}
+
+.grupo {
+  display: grid;
+  grid-template-columns: 220px 200px; /* coluna imaginária: labels e inputs alinhados */
+  gap: 8px 20px;
+  margin-bottom: 20px;
+}
+
+/* Labels alinhados */
+label {
+  text-align: right;
+  padding-right: 10px;
+}
+
+/* Inputs padrão */
+input {
+  padding: 6px;
+  border-radius: 4px;
+  width: 180px;
+}
+
+/* Proventos com contorno verde */
+.provento {
+  border: 2px solid green;
+}
+
+/* Descontos com contorno vermelho */
+.desconto {
+  border: 2px solid red;
+}
+
+/* Botão azul fixo */
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #0000FF; /* azul puro */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #000099; /* azul mais escuro */
+}
+
+#resultado {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #ecf0f1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.assinatura {
+  font-size: 0.9em;
+  color: #666; /* cinza discreto */
+  font-style: italic;
+}

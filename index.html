@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora INSS e IRRF(MKARAUJO) </title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Calculadora de INSS e IRRF</h2>
+
+  <h3>Configurações</h3>
+  <div class="grupo">
+    <label>Ano do cálculo:</label>
+    <select id="anoCalculo">
+      <option value="">-- selecione --</option>
+      <option value="2025">2025</option>
+      <option value="2026">2026</option>
+    </select>
+
+    <label>Tipo de dedução IR:</label>
+    <select id="tipoDeducao">
+      <option value="">-- selecione --</option>
+      <option value="legais">Deduções legais</option>
+      <option value="simplificado">Desconto simplificado</option>
+    </select>
+  </div>
+  <br>
+
+  <h3>Proventos <span class="obs">(Informe os valores, exemplo: R$ 200,00)</span></h3>
+  <div class="grupo">
+    <label>Salário:</label><input type="number" id="salario" class="provento">
+    <label>Hora extra:</label><input type="number" id="horaExtra" class="provento">
+    <label>DSR de Hora extra:</label><input type="number" id="dsrHoraExtra" class="provento">
+    <label>Comissão:</label><input type="number" id="comissao" class="provento">
+    <label>Tarefa:</label><input type="number" id="tarefa" class="provento">
+    <label>DSR de Tarefa:</label><input type="number" id="dsrTarefa" class="provento">
+    <label>Prêmio (só IRRF):</label><input type="number" id="premio" class="provento">
+  </div>
+
+  <h3>Descontos <span class="obs">(Informe os valores, exemplo: R$ 200,00)</span></h3>
+  <div class="grupo">
+    <label>Faltas:</label><input type="number" id="faltas" class="desconto">
+    <label>Afastamento:</label><input type="number" id="afastamento" class="desconto">
+    <label>DSR de falta:</label><input type="number" id="dsrFalta" class="desconto">
+    <label>Pensão alimentícia:</label><input type="number" id="pensao" class="desconto">
+  </div>
+
+  <h3>Dependentes</h3>
+  <div class="grupo">
+    <label>Nº de Dependentes (189,59 cada):</label>
+    <input type="number" id="dependentes" class="desconto">
+  </div>
+
+  <button onclick="calcular()">Calcular agora</button>
+
+  <h3>Resultado:</h3>
+  <div id="resultado"></div>
+
+  <script src="script.js"></script>
+
+  <footer>
+  <p class="assinatura">Desenvolvido por MKARAUJO © 2025</p>
+  </footer>
+
+</body>
+</html>
