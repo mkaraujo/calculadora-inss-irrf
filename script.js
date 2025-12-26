@@ -123,10 +123,12 @@ function calcular() {
     `;
   }
 
-  resultadoHTML += `
+resultadoHTML += `
+  <span style="color: blue;">
     IRRF final: R$ ${ir.toFixed(2)}<br>
     Salário líquido: R$ ${(proventosTributaveis + premio - descontos - inss - ir).toFixed(2)}
-  `;
+  </span>
+`;
 
   document.getElementById("resultado").innerHTML = resultadoHTML;
 }
