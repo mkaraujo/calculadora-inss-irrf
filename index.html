@@ -8,6 +8,11 @@
 </head>
 <body>
   <h2>Calculadora de INSS e IRRF</h2>
+   <p><span class="obs">Para utilizar a calculadora, selecione o ano do cálculo e o tipo de dedução de IR desejado. 
+   Em seguida, preencha os campos com os valores correspondentes aos seus proventos, descontos e dependentes.
+   Arrastando até o final da tela encontrará o botão de "Calcular" para executar o cálculo. Temos 4 opções disponíveis: 
+   Mensal, férias, 13º e PLR (isento de INSS).
+  </span></p>
 
   <!-- Configurações -->
   <div class="box-entrada">
@@ -95,7 +100,10 @@
         <input type="number" id="umTerco">
       </div>
        <div class="campo">
-        <h4>Pensão sobre Férias<span class="obs">(Preencher somente se a pensão tiver incidência de IRRF. Caso contrário, deixe vazio.)</span></h4>
+        <h4>Pensão sobre Férias 
+          <span class="obs">(Preencher somente se a pensão tiver incidência de IRRF. Caso contrário, deixe vazio.)
+          </span>
+        </h4>
         <label>Pensão sobre Férias:</label><input type="number" id="pensaoFerias">
       </div>
       <div class="campo">
@@ -105,33 +113,32 @@
     </div>
   </div>
 
-  <!-- Bloco 13º -->
+<!-- Bloco 13º -->
 <div class="box-entrada">
   <h3>Cálculo de 13º Salário</h3>
+
   <div class="campo">
     <label>13º salário:</label>
     <input type="number" id="decimoTerceiro">
   </div>
+
   <div class="campo">
     <label>Pensão sobre 13º:</label>
     <input type="number" id="pensao13">
   </div>
-  <p class="obs">Preencher somente se a pensão tiver incidência de IRRF. Caso contrário, deixe vazio.</p>
-  
-  <h4>Dependentes 
-    <span class="obs">(Informe a quantidade de dependentes, exemplo: 2)</span>
-  </h4>
+
   <div class="campo">
+    <p class="obs">Preencher somente se a pensão tiver incidência de IRRF. Caso contrário, deixe vazio.</p>
+  </div>
+
+  <div class="campo">
+    <h4>Dependentes 
+      <span class="obs">(Informe a quantidade de dependentes, exemplo: 2)</span>
+    </h4>
     <label>Nº de Dependentes:</label>
     <input type="number" id="dependentes13">
   </div>
-
-  <p class="obs">
-    O cálculo do IRRF sobre o 13º seguirá a opção escolhida em 
-    <strong>Tipo de Dedução</strong> (Deduções legais ou Desconto simplificado).
-  </p>
 </div>
-
 
   <!-- Bloco PLR -->
   <div class="box-entrada">

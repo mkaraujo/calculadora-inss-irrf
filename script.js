@@ -19,19 +19,19 @@ function calcular() {
   const comissao = parseFloat(document.getElementById("comissao").value) || 0;
   const tarefa = parseFloat(document.getElementById("tarefa").value) || 0;
   const dsrTarefa = parseFloat(document.getElementById("dsrTarefa").value) || 0;
-
+  const premio = parseFloat(document.getElementById("premio").value) || 0;
   const faltas = parseFloat(document.getElementById("faltas").value) || 0;
   const afastamento = parseFloat(document.getElementById("afastamento").value) || 0;
   const dsrFalta = parseFloat(document.getElementById("dsrFalta").value) || 0;
 
- const premio = parseFloat(document.getElementById("premio").value) || 0;
+  // const premio = parseFloat(document.getElementById("premio").value) || 0;
   const dependentes = parseInt(document.getElementById("dependentes").value) || 0;
   const pensao = parseFloat(document.getElementById("pensao").value) || 0;
 
-  // NOVOS CAMPOS
   const ferias = parseFloat(document.getElementById("ferias")?.value) || 0;
   const umTerco = parseFloat(document.getElementById("umTerco")?.value) || 0;
   const pensaoFerias = parseFloat(document.getElementById("pensaoFerias")?.value) || 0;
+  
   const decimoTerceiro = parseFloat(document.getElementById("decimoTerceiro")?.value) || 0;
   const pensao13 = parseFloat(document.getElementById("pensao13")?.value) || 0;
   const plr = parseFloat(document.getElementById("plr")?.value) || 0;
@@ -140,8 +140,8 @@ if (ferias > 0) {
   const dependentesFerias = parseInt(document.getElementById("dependentesFerias").value) || 0;
   const abatimentoDependentesFerias = dependentesFerias * DEDUCAO_DEPENDENTE;
 
-  const umTerco = ferias / 3; // adicional de 1/3
-  const baseFeriasINSS = ferias + umTerco; // INSS incide sobre férias + 1/3
+  // usa o valor digitado no campo "umTerco"
+  const baseFeriasINSS = ferias + umTerco; // INSS incide sobre férias + 1/3 informado
   const inssFerias = calcularINSS(baseFeriasINSS);
 
   let baseIRFerias;
@@ -163,7 +163,7 @@ if (ferias > 0) {
 
   if (anoSelecionado === "2026") {
     redutorFerias = 978.62 - (baseFeriasINSS * 0.133145);
-    if (redutorFerias < 0) redutorFerias = 0; // <<< correção
+    if (redutorFerias < 0) redutorFerias = 0;
     irFerias = Math.max(irFerias - redutorFerias, 0);
   }
 
